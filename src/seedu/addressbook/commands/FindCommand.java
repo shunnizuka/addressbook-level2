@@ -39,7 +39,6 @@ public class FindCommand extends Command {
     @Override
     public CommandResult execute() {
         if(isFindByTagCommand(keywords)) {
-            System.out.println("find by tag");
             keywords.remove("t/");
             final List<ReadOnlyPerson> personsFound;
             try {
@@ -83,7 +82,7 @@ public class FindCommand extends Command {
         final List<ReadOnlyPerson> matchedPersons = new ArrayList<>();
         final Set<Tag> keyToMatch = new HashSet<>();
 
-        for(String key: keywords) {
+        for(String key: keywords) { //convert the keywords to set of tags for comparison
             keyToMatch.add(new Tag(key));
         }
 
