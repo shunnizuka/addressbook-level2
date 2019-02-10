@@ -66,10 +66,6 @@ public class FindCommand extends Command {
         final List<ReadOnlyPerson> matchedPersons = new ArrayList<>();
         for (ReadOnlyPerson person : addressBook.getAllPersons()) {
             final Set<String> wordsInName = new HashSet<>(person.getName().getWordsInName());
-            final Set<Tag> tags = new HashSet<>(person.getTags());
-            for(Tag tag : tags) {
-                System.out.println(tag.tagName);
-            }
 
             if (!Collections.disjoint(wordsInName, keywords)) {
                 matchedPersons.add(person);
